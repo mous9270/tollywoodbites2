@@ -3,8 +3,10 @@ import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 import AnimatedButton from './AnimatedButton';
 
 const LocationSection = () => {
-  const handleMapClick = () => {
-    window.open('https://www.google.com/maps/dir//601+Fort+Worth+Dr,+Denton,+TX+76201,+United+States/@33.1874407,-97.1250665,14.52z/data=!4m8!4m7!1m0!1m5!1m1!1s0x864dcbfec00b8863:0xcd509ed78ca5e3f1!2m2!1d-97.1367077!2d33.1996591?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D', '_blank');
+  const mapsUrl = "https://www.google.com/maps/dir//601+Fort+Worth+Dr,+Denton,+TX+76201,+United+States/@33.1874407,-97.1250665,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x864dcbfec00b8863:0xcd509ed78ca5e3f1!2m2!1d-97.1367077!2d33.1996591?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D";
+
+  const handleDirectionsClick = () => {
+    window.open(mapsUrl, '_blank');
   };
 
   return (
@@ -57,10 +59,11 @@ const LocationSection = () => {
               </div>
             </div>
           </div>
-          
-          <AnimatedButton onClick={handleMapClick}>
+          <a href="https://www.google.com/maps/dir//601+Fort+Worth+Dr,+Denton,+TX+76201,+United+States/@33.1874407,-97.1250665,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x864dcbfec00b8863:0xcd509ed78ca5e3f1!2m2!1d-97.1367077!2d33.1996591?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D">
+          <AnimatedButton onClick={handleDirectionsClick}>
             Get Directions
           </AnimatedButton>
+          </a>
         </div>
       </div>
 
@@ -76,7 +79,7 @@ const LocationSection = () => {
         />
         <div 
           className="absolute inset-0 cursor-pointer hover:bg-[#FBA40E]/10 transition-colors"
-          onClick={handleMapClick}
+          onClick={handleDirectionsClick}
         />
       </div>
     </section>
