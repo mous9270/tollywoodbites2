@@ -12,7 +12,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
       <div className="flex items-center justify-between px-4 py-4">
         <div className="flex items-center">
           <a href="#" className="z-10">
-            <img src="/logo.svg" alt="TollywoodBites" className="h-20 w-auto" />
+            <img src="/logo.svg" alt="TollywoodBites" className="h-24 w-auto mb-4" />
           </a>
         </div>
   
