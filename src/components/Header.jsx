@@ -14,6 +14,43 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
     { id: 'contact', label: 'CONTACT' }
   ];
 
+  // Scroll to section function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 100; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Update active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => document.getElementById(link.id));
+      const scrollPosition = window.scrollY + 200; // Offset for better trigger point
+
+      sections.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            setActiveSection(navLinks[index].id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <header
@@ -22,11 +59,14 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
         } ${isHeaderHidden ? '-translate-y-full' : ''}`}
         style={{ top: '40px' }}
       >
-        <div className=" mx-auto px-4">
+        <div className="mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Left: Logo */}
             <div className="flex-shrink-0">
-              <a href="#home">
+              <a href="#home" onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('home');
+              }}>
                 <img src="/logo.svg" alt="TollywoodBites" className="h-24 w-auto" />
               </a>
             </div>
