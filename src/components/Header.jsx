@@ -22,7 +22,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
         } ${isHeaderHidden ? '-translate-y-full' : ''}`}
         style={{ top: '40px' }}
       >
-        <div className="container mx-auto px-4">
+        <div className=" mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Left: Logo */}
             <div className="flex-shrink-0">
@@ -32,7 +32,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
             </div>
 
             {/* Center: Navigation Links (Desktop) */}
-            <div className="hidden md:flex flex-1 justify-center">
+            <div className="hidden md:flex flex-1 justify-center ml-32">
               <div className="flex items-center justify-center gap-8">
                 {navLinks.map((link) => (
                   <button
