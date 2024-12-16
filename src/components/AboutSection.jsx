@@ -30,32 +30,26 @@ const AboutSection = () => {
           <div className="space-y-8">
             <div className="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-white/10">
               <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8">
-                USA - Land of immigrants with deep rooted cultures spanning across
-                length and width of entire World. TollywoodBites is here, to celebrate
-                culture, heritage through food, much more than nostalgia and recipes.
-                In today's ever-growing competitive market, we are here with
-                delicacies that tantalize the taste buds, providing excellent customer
-                service and value for money.
+                <span className="text-[#FBA40E] font-semibold">TollywoodBites</span> is not just a food truck — it’s a journey back home for your taste buds. Based in <span className="italic">601 Fort Worth Dr, Denton, Texas</span>, we bring the bold and fiery flavors of <span className="text-[#FBA40E]">authentic Andhra cuisine</span> straight to your plate. Inspired by the glitz and glamour of Tollywood, we celebrate Andhra’s food culture as passionately as our love for cinema.
               </p>
               
               <blockquote className="border-l-4 border-[#FBA40E] pl-6 my-8">
                 <p className="text-[#FBA40E] italic text-lg md:text-xl">
-                  "There is only one boss, the customer"
+                  "Every bite is a blockbuster!"
                 </p>
-                <cite className="block text-white/60 mt-2 text-sm">- Sam Walton</cite>
+                <cite className="block text-white/60 mt-2 text-sm">- TollywoodBites</cite>
               </blockquote>
 
               <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                We believe that <span className="text-[#FBA40E]">customers certify the success of recipe</span>, 
-                the demand and growth. TollywoodBites gives attention to the diversified 
-                food and culture of various cities in India. With the touch of southern 
-                spices, we are trying to deliver <span className="italic">"scrumptious food 
-                that smack your lips"</span> catering to South Asian, and local and 
-                international foodies.
+                We take pride in our <span className="text-[#FBA40E] font-semibold">handcrafted recipes</span> made with fresh ingredients, aromatic southern spices, and the authentic touch of Andhra kitchens. From crispy <span className="italic">dosas</span> and fiery <span className="italic">biryanis</span> to lip-smacking <span className="italic">pani poori</span> and snacks, every dish is a scene-stealer. Whether you're a fan of spicy flavors or craving something soulful, our menu is designed to make you go, <span className="italic">“Wow, that hit the spot!”</span>
+              </p>
+              
+              <p className="text-white/80 text-base md:text-lg leading-relaxed">
+                What makes TollywoodBites special? It’s our customers. You’re not just visitors; you’re the heroes of our story. <span className="text-[#FBA40E]">Your smiles and satisfaction certify the success of our recipes</span>. So, step up to our food truck, savor Andhra’s culinary magic, and let every bite remind you — life is meant to be enjoyed, one blockbuster meal at a time.
               </p>
             </div>
 
-            {/* Stats or Features */}
+            {/* Features Section */}
             
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Clock, Phone, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
+import { MapPin, Clock, Phone, Mail, Instagram } from 'lucide-react';
 import AnimatedButton from './AnimatedButton';
 
 const Footer = () => {
@@ -17,37 +17,23 @@ const Footer = () => {
               Experience the authentic flavors of Indian cuisine, crafted with passion and served with love.
             </p>
             <div className="flex space-x-4">
-              
-              <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">
+              <a href="https://www.instagram.com/tollywoodbites/" className="text-white/70 hover:text-[#FBA40E] transition-colors">
                 <Instagram size={24} />
               </a>
-              
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col">
             <h3 className="text-white font-bold text-xl mb-6">Quick Links</h3>
-            <ul className="space-y-4">
-              <li>
-                <a href="#home" className="text-white/70 hover:text-[#FBA40E] transition-colors">Home</a>
-              </li>
-              <li>
-                <a href="#about" className="text-white/70 hover:text-[#FBA40E] transition-colors">About Us</a>
-              </li>
-              <li>
-                <a href="#menu" className="text-white/70 hover:text-[#FBA40E] transition-colors">Menu</a>
-              </li>
-              <li>
-                <a href="#location" className="text-white/70 hover:text-[#FBA40E] transition-colors">Location</a>
-              </li>
-              <li>
-                <a href="#gallery" className="text-white/70 hover:text-[#FBA40E] transition-colors">Gallery</a>
-              </li>
-              <li>
-                <a href="#contact" className="text-white/70 hover:text-[#FBA40E] transition-colors">Contact</a>
-              </li>
-            </ul>
+            <nav className="flex flex-col space-y-4">
+              <a href="#home" className="text-white/70 hover:text-[#FBA40E] transition-colors w-fit">Home</a>
+              <a href="#about" className="text-white/70 hover:text-[#FBA40E] transition-colors w-fit">About Us</a>
+              <a href="#menu" className="text-white/70 hover:text-[#FBA40E] transition-colors w-fit">Menu</a>
+              <a href="#location" className="text-white/70 hover:text-[#FBA40E] transition-colors w-fit">Location</a>
+              <a href="#gallery" className="text-white/70 hover:text-[#FBA40E] transition-colors w-fit">Gallery</a>
+              <a href="#contact" className="text-white/70 hover:text-[#FBA40E] transition-colors w-fit">Contact</a>
+            </nav>
           </div>
 
           {/* Contact Info */}
