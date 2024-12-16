@@ -72,7 +72,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
             </div>
 
             {/* Center: Navigation Links (Desktop) */}
-            <div className="hidden md:flex flex-1 justify-center ml-32">
+            <div className="hidden md:flex flex-1 justify-center ml-36">
               <div className="flex items-center justify-center gap-8">
                 {navLinks.map((link) => (
                   <button
