@@ -35,9 +35,9 @@ const AboutSection = () => {
               
               <blockquote className="border-l-4 border-[#FBA40E] pl-6 my-8">
                 <p className="text-[#FBA40E] italic text-lg md:text-xl">
-                  "Every bite is a blockbuster!"
+                  "The love for food is universal. A good meal can bring people together, no matter where they come from."
                 </p>
-                <cite className="block text-white/60 mt-2 text-sm">- TollywoodBites</cite>
+                <cite className="block text-white/60 mt-2 text-sm">- Chiranjeevi</cite>
               </blockquote>
 
               <p className="text-white/80 text-base md:text-lg leading-relaxed">
