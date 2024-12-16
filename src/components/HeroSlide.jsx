@@ -10,8 +10,15 @@ const HeroSlide = ({ slide, isActive }) => {
           ${isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
         `}
       >
-        <div className="absolute inset-0">
-          <div className={`w-full h-full transition-transform duration-[7000ms] ${isActive ? 'scale-115' : 'scale-100'}`}>
+        <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className={`
+              w-full h-full 
+              transform-gpu
+              transition-all duration-[6500ms] ease-out
+              ${isActive ? 'scale-110' : 'scale-100'}
+            `}
+          >
             <img 
               src={slide.image} 
               alt="" 
