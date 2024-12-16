@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AnimatedButton from './AnimatedButton';
 
 const FoodMenu = () => {
   const categories = [
@@ -40,10 +39,22 @@ const FoodMenu = () => {
   const [activeCategory, setActiveCategory] = useState("Snacks");
 
   return (
-    <section className="min-h-screen bg-[#0D0D0D] py-24">
+    <section className="relative min-h-screen bg-black py-24 overflow-hidden">
+      {/* Oscillating Shapes */}
+      <img
+        src="./shape-1.png"
+        alt="Decorative"
+        className="absolute left-0 bottom-0 w-1/4 opacity-60 animate-oscillate"
+      />
+      <img
+        src="./shape-2.png"
+        alt="Decorative"
+        className="absolute right-0 top-0 w-1/4 opacity-60 animate-oscillate"
+      />
+
       <div className="container mx-auto px-4">
         {/* Title Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 relative z-10">
           <p className="text-[#FBA40E] text-sm font-bold tracking-[0.4em] uppercase mb-4">
             Our Menu
           </p>
@@ -52,7 +63,7 @@ const FoodMenu = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto relative z-10">
           {/* Left Panel - Categories */}
           <div className="w-full lg:w-1/3">
             <div className="bg-black/50 backdrop-blur-sm p-6 rounded-lg border border-white/10">
@@ -96,9 +107,7 @@ const FoodMenu = () => {
                       <span className="text-[#FBA40E] font-bold text-lg">
                         ${item.price}
                       </span>
-                      <AnimatedButton secondary className="px-6 py-2">
-                        Order
-                      </AnimatedButton>
+                      {/* Order button removed */}
                     </div>
                   </div>
                 ))}
