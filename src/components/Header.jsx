@@ -14,11 +14,10 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
     { id: 'contact', label: 'CONTACT' }
   ];
 
-  // Scroll to section function
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerOffset = 100; // Adjust this value based on your header height
+      const headerOffset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -29,11 +28,10 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
     }
   };
 
-  // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
       const sections = navLinks.map(link => document.getElementById(link.id));
-      const scrollPosition = window.scrollY + 200; // Offset for better trigger point
+      const scrollPosition = window.scrollY + 200;
 
       sections.forEach((section, index) => {
         if (section) {
@@ -54,20 +52,24 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
   return (
     <>
       <header
-        className={`fixed w-full z-30 transition-all duration-300 ${
-          isHeaderActive ? 'bg-[#0D0D0D]' : ''
-        } ${isHeaderHidden ? '-translate-y-full' : ''}`}
+        className={`fixed w-full z-30 transition-all duration-300 overflow-hidden
+          ${isHeaderActive ? 'bg-[#0D0D0D]' : ''}
+          ${isHeaderHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
         style={{ top: '40px' }}
       >
-        <div className="mx-auto px-4">
-          <div className="flex items-center justify-between">
+        <div className=" mx-auto px-4">
+          <div className="flex items-center justify-between h-24">
             {/* Left: Logo */}
             <div className="flex-shrink-0">
-              <a href="#home" onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('home');
-              }}>
-                <img src="/logo.svg" alt="TollywoodBites" className="h-24 w-auto" />
+              <a 
+                href="#home" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('home');
+                }}
+                className="block"
+              >
+                <img src="/logo.svg" alt="TollywoodBites" className="h-20 w-auto" />
               </a>
             </div>
 
@@ -78,9 +80,8 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
                   <button
                     key={link.id}
                     onClick={() => scrollToSection(link.id)}
-                    className={`text-sm font-bold tracking-wider transition-colors ${
-                      activeSection === link.id ? 'text-[#FBA40E]' : 'text-white hover:text-[#FBA40E]'
-                    }`}
+                    className={`text-sm font-bold tracking-wider transition-colors
+                      ${activeSection === link.id ? 'text-[#FBA40E]' : 'text-white hover:text-[#FBA40E]'}`}
                   >
                     {link.label}
                   </button>
@@ -104,7 +105,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
         </div>
       </header>
 
-      {/* Mobile Navigation Overlay */}
+      {/* Mobile Navigation */}
       <div 
         className={`fixed top-0 ${isNavActive ? 'right-0' : '-right-full'} 
           w-full max-w-sm h-screen bg-black transition-all duration-300 z-50 
@@ -125,9 +126,8 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
                   scrollToSection(link.id);
                   setIsNavActive(false);
                 }}
-                className={`text-sm font-bold tracking-wider transition-colors ${
-                  activeSection === link.id ? 'text-[#FBA40E]' : 'text-white hover:text-[#FBA40E]'
-                }`}
+                className={`text-sm font-bold tracking-wider transition-colors
+                  ${activeSection === link.id ? 'text-[#FBA40E]' : 'text-white hover:text-[#FBA40E]'}`}
               >
                 {link.label}
               </button>
