@@ -33,7 +33,9 @@ const HeroSlide = ({ slide, isActive }) => {
           <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl mb-6 whitespace-pre-line leading-tight text-white">{slide.title}</h1>
           <p className="text-lg mb-8 text-white/80">{slide.text}</p>
           <div className={`transition-transform duration-500 ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <AnimatedButton>VIEW OUR MENU</AnimatedButton>
+            <a href="#menu" className="block">
+              <AnimatedButton>VIEW OUR MENU</AnimatedButton>
+            </a>
           </div>
         </div>
       </div>
