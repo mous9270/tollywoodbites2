@@ -37,7 +37,7 @@ const Gallery = () => {
   };
 
   return (
-    <section className="min-h-screen bg-[#0D0D0D] py-24">
+    <section className="min-h-screen bg-[#0D0D0D] py-24" id="gallery">
       <div className="container mx-auto px-4">
         {/* Title Section */}
         <div className="text-center mb-16">

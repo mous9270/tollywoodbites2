@@ -4,7 +4,7 @@ import Menu from './components/Menu'
 import LocationSection from './components/Location'
 import Gallery from './components/Gallery'
 import Footer from './components/Footer'
-import AboutSection from './AboutSection'
+import AboutSection from './components/AboutSection'
 const App = () => {
 	return(
 		<div>

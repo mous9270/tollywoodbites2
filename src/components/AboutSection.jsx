@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutSection = () => {
   return (
-    <section className="relative min-h-screen bg-[#0D0D0D] py-24">
+    <section className="relative min-h-screen bg-[#0D0D0D] py-24" id="about">
       {/* Background Elements */}
       <img
         src="/bg_element1.png"

@@ -3,7 +3,7 @@ import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 
 const InfoBar = () => {
     return (
-      <div className="fixed top-0 left-0 w-full z-40 py-2">
+      <div className="fixed top-0 left-0 w-full z-40 py-2 hidden md:block">
         <div className="flex items-center justify-between px-4">
           <div className="flex items-center space-x-6">
             <div className="flex items-center gap-2 text-white/80">

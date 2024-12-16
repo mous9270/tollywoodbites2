@@ -56,7 +56,7 @@ const LandingPage = () => {
     const slidePrev = () => setCurrentSlide(prev => prev <= 0 ? slides.length - 1 : prev - 1);
   
     return (
-      <div className="min-h-screen bg-[#0D0D0D] text-white">
+      <div className="min-h-screen bg-[#0D0D0D] text-white" id="home">
         <InfoBar />
         
         <Header 

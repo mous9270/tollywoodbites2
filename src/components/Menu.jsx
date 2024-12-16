@@ -39,7 +39,7 @@ const FoodMenu = () => {
   const [activeCategory, setActiveCategory] = useState("Snacks");
 
   return (
-    <section className="relative min-h-screen bg-black py-24 overflow-hidden">
+    <section className="relative min-h-screen bg-black py-24 overflow-hidden" id="menu">
       {/* Oscillating Shapes */}
       <img
         src="./shape-1.png"

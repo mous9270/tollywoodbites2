@@ -6,7 +6,7 @@ const Footer = () => {
   const mapsUrl = "https://www.google.com/maps/dir//601+Fort+Worth+Dr,+Denton,+TX+76201,+United+States/@33.1874407,-97.1250665,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x864dcbfec00b8863:0xcd509ed78ca5e3f1!2m2!1d-97.1367077!2d33.1996591?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D";
 
   return (
-    <footer className="bg-black">
+    <footer className="bg-black" id="contact">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -17,15 +17,11 @@ const Footer = () => {
               Experience the authentic flavors of Indian cuisine, crafted with passion and served with love.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">
-                <Facebook size={24} />
-              </a>
+              
               <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">
                 <Instagram size={24} />
               </a>
-              <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">
-                <Twitter size={24} />
-              </a>
+              
             </div>
           </div>
 
@@ -34,19 +30,22 @@ const Footer = () => {
             <h3 className="text-white font-bold text-xl mb-6">Quick Links</h3>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">Home</a>
+                <a href="#home" className="text-white/70 hover:text-[#FBA40E] transition-colors">Home</a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">Menu</a>
+                <a href="#about" className="text-white/70 hover:text-[#FBA40E] transition-colors">About Us</a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">About Us</a>
+                <a href="#menu" className="text-white/70 hover:text-[#FBA40E] transition-colors">Menu</a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">Gallery</a>
+                <a href="#location" className="text-white/70 hover:text-[#FBA40E] transition-colors">Location</a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-[#FBA40E] transition-colors">Contact</a>
+                <a href="#gallery" className="text-white/70 hover:text-[#FBA40E] transition-colors">Gallery</a>
+              </li>
+              <li>
+                <a href="#contact" className="text-white/70 hover:text-[#FBA40E] transition-colors">Contact</a>
               </li>
             </ul>
           </div>
