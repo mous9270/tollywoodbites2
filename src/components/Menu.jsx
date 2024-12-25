@@ -1,42 +1,41 @@
 import React, { useState } from "react";
+import menuData from "./menuData.jsx"; // Updated import path with correct extension
 
 const FoodMenu = () => {
-  const categories = [
-    { id: 1, name: "Snacks" },
-    { id: 2, name: "Tiffins" },
-    { id: 3, name: "Chat" },
-    { id: 4, name: "Meals" },
-    { id: 5, name: "Fast Food" },
-  ];
+  const [activeCategory, setActiveCategory] = useState(menuData.categories[0].name);
 
-  const foodItems = {
-    Snacks: [
-      { name: "Samosa (2 pcs)", price: "3.99" },
-      { name: "Spring Potato", price: "4.99" },
-      { name: "Mirchi Bajji", price: "5.99" },
-    ],
-    Tiffins: [
-      { name: "Idly", price: "4.99" },
-      { name: "Ghee Karam Idly", price: "5.99" },
-      { name: "Masala Dosa", price: "6.99" },
-    ],
-    Chat: [
-      { name: "Pani Puri", price: "5.99" },
-      { name: "Samosa Chat", price: "6.99" },
-      { name: "Dahi Puri", price: "3.99" },
-    ],
-    Meals: [
-      { name: "Chicken Biriyani", price: "10.99" },
-      { name: "Veg Meals", price: "8.99" },
-    ],
-    "Fast Food": [
-      { name: "Noodles", price: "6.99" },
-      { name: "Fried Rice", price: "7.99" },
-      { name: "Manchurian", price: "8.99" },
-    ],
+  const renderMenuItem = (item) => {
+    if (item.variants) {
+      return (
+        <div className="flex flex-col gap-2">
+          <h4 className="text-white text-lg font-medium">{item.name}</h4>
+          <div className="pl-4 space-y-2">
+            {item.variants.map((variant, vIdx) => (
+              <div key={vIdx} className="flex justify-between items-center">
+                <span className="text-white/70 text-sm capitalize">
+                  {variant.type}
+                </span>
+                <span className="text-[#FBA40E] font-bold">
+                  ${variant.price.toFixed(2)}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex justify-between items-center">
+        <h4 className="text-white text-lg font-medium">
+          {item.name}
+        </h4>
+        <span className="text-[#FBA40E] font-bold text-lg">
+          ${item.price.toFixed(2)}
+        </span>
+      </div>
+    );
   };
-
-  const [activeCategory, setActiveCategory] = useState("Snacks");
 
   return (
     <section className="relative min-h-screen bg-black py-24 overflow-hidden" id="menu">
@@ -69,9 +68,9 @@ const FoodMenu = () => {
             <div className="bg-black/50 backdrop-blur-sm p-6 rounded-lg border border-white/10">
               <h3 className="text-white font-bold text-xl mb-6">Categories</h3>
               <div className="space-y-2">
-                {categories.map((category) => (
+                {menuData.categories.map((category, idx) => (
                   <button
-                    key={category.id}
+                    key={idx}
                     onClick={() => setActiveCategory(category.name)}
                     className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
                       activeCategory === category.name
@@ -93,24 +92,16 @@ const FoodMenu = () => {
                 {activeCategory}
               </h3>
               <div className="space-y-4">
-                {foodItems[activeCategory].map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center p-4 rounded-lg border border-white/10 hover:border-[#FBA40E] transition-colors duration-300"
-                  >
-                    <div className="flex-1">
-                      <h4 className="text-white text-lg font-medium">
-                        {item.name}
-                      </h4>
+                {menuData.categories
+                  .find(cat => cat.name === activeCategory)
+                  ?.items.map((item, index) => (
+                    <div
+                      key={index}
+                      className="p-4 rounded-lg border border-white/10 hover:border-[#FBA40E] transition-colors duration-300"
+                    >
+                      {renderMenuItem(item)}
                     </div>
-                    <div className="flex items-center gap-8">
-                      <span className="text-[#FBA40E] font-bold text-lg">
-                        ${item.price}
-                      </span>
-                      {/* Order button removed */}
-                    </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           </div>
