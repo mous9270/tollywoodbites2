@@ -11,10 +11,10 @@ const FoodMenu = () => {
   );
 
   return (
-    <section className="bg-[#0D0D0D] py-24" id="menu">
+    <section className="bg-[#0D0D0D] min-h-screen" id="menu">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 pt-16">
           <p className="text-[#FBA40E] text-sm font-bold tracking-[0.4em] uppercase mb-4">
             Our Services
           </p>
