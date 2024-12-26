@@ -11,7 +11,6 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
   ];
 
   const rightNavLinks = [
-    
     { id: 'menu', label: 'MENU' },
     { id: 'order', label: 'ORDER NOW' }
   ];
@@ -53,7 +52,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
   return (
     <>
       <header
-        className={`fixed w-full z-30 ml-4 mt-4 transition-all duration-300 overflow-hidden
+        className={`fixed w-full z-30 ml-4 mt-8 transition-all duration-300
           ${isHeaderActive ? 'bg-[#0D0D0D]' : ''}
           ${isHeaderHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
         style={{ top: '40px' }}
@@ -79,12 +78,12 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
                 e.preventDefault();
                 scrollToSection('home');
               }}
-              className="block"
+              className="block h-24 flex items-center justify-center"
             >
               <img 
                 src="/logo.svg" 
                 alt="TollywoodBites" 
-                className="h-44 w-auto transform transition-transform hover:scale-110"
+                className="h-48 w-auto transform transition-transform hover:scale-110"
               />
             </a>
 
