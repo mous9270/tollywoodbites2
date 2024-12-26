@@ -5,8 +5,19 @@ const FoodMenu = () => {
   const [activeCategory, setActiveCategory] = useState(menuData.categories[0].name);
 
   const renderMenuItem = (item) => (
-    <div className="py-2 border-b border-white/10">
+    <div className="py-2 border-b border-white/10 flex justify-between items-center">
       <h4 className="text-white text-sm font-medium capitalize">{item.name}</h4>
+      {item.variants ? (
+        <div className="text-right">
+          {item.variants.map((variant, idx) => (
+            <div key={idx} className="text-white/70 text-sm">
+              {variant.type}: ${variant.price}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <span className="text-white/70 text-sm">${item.price}</span>
+      )}
     </div>
   );
 
@@ -31,10 +42,10 @@ const FoodMenu = () => {
       {/* Header */}
       <div className="text-center mb-16 pt-16">
         <p className="text-[#FBA40E] text-sm font-bold tracking-[0.4em] uppercase mb-4">
-          Our Services
+          Our Menu
         </p>
         <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8">
-          Catering
+        Discover Our Delicacies
         </h2>
       </div>
   
