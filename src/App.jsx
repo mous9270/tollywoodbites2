@@ -9,11 +9,11 @@ const App = () => {
 	return(
 		<div>
 			<LandingPage />
-			<AboutSection/>
+			{/* <AboutSection/> */}
 			<Menu />
 			<LocationSection />
-			<Gallery />
-			<Footer />
+			{/* <Gallery /> */}
+			{/* <Footer /> */}
 		</div>
 	)
 }

@@ -5,13 +5,14 @@ import AnimatedButton from './AnimatedButton';
 const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive }) => {
   const [activeSection, setActiveSection] = useState('home');
 
-  const navLinks = [
+  const leftNavLinks = [
     { id: 'home', label: 'HOME' },
-    { id: 'about', label: 'ABOUT' },
-    { id: 'menu', label: 'MENU' },
+    { id: 'menu', label: 'MENU' }
+  ];
+
+  const rightNavLinks = [
     { id: 'location', label: 'LOCATION' },
-    { id: 'gallery', label: 'GALLERY' },
-    { id: 'contact', label: 'CONTACT' }
+    { id: 'order', label: 'ORDER NOW' }
   ];
 
   const scrollToSection = (sectionId) => {
@@ -30,16 +31,15 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map(link => document.getElementById(link.id));
+      const sections = [...leftNavLinks, ...rightNavLinks].map(link => document.getElementById(link.id));
       const scrollPosition = window.scrollY + 200;
 
       sections.forEach((section, index) => {
         if (section) {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.clientHeight;
-          
           if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            setActiveSection(navLinks[index].id);
+            setActiveSection(sections[index].id);
           }
         }
       });
@@ -57,50 +57,47 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
           ${isHeaderHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
         style={{ top: '40px' }}
       >
-        <div className=" mx-auto px-4">
-          <div className="flex items-center justify-between h-24">
-            {/* Left: Logo */}
-            <div className="flex-shrink-0">
-              <a 
-                href="#home" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('home');
-                }}
-                className="block"
-              >
-                <img src="/logo.svg" alt="TollywoodBites" className="h-20 w-auto" />
-              </a>
-            </div>
-
-            {/* Center: Navigation Links (Desktop) */}
-            <div className="hidden md:flex flex-1 justify-center ml-36">
-              <div className="flex items-center justify-center gap-8">
-                {navLinks.map((link) => (
-                  <button
-                    key={link.id}
-                    onClick={() => scrollToSection(link.id)}
-                    className={`text-sm font-bold tracking-wider transition-colors
-                      ${activeSection === link.id ? 'text-[#FBA40E]' : 'text-white hover:text-[#FBA40E]'}`}
-                  >
-                    {link.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: CTA Button & Mobile Menu */}
-            <div className="flex items-center gap-4">
-              <div className="hidden md:block">
-                <AnimatedButton secondary>ORDER NOW</AnimatedButton>
-              </div>
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex items-center justify-center gap-12 h-24">
+            {/* Left Nav Links */}
+            {leftNavLinks.map((link) => (
               <button
-                className="md:hidden text-white hover:text-[#FBA40E] transition-colors"
-                onClick={() => setIsNavActive(true)}
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className={`text-sm font-bold tracking-wider transition-colors
+                  ${activeSection === link.id ? 'text-[#FBA40E]' : 'text-white hover:text-[#FBA40E]'}`}
               >
-                <Menu size={24} />
+                {link.label}
               </button>
-            </div>
+            ))}
+
+            {/* Center Logo */}
+            <a 
+              href="#home" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('home');
+              }}
+              className="block"
+            >
+              <img 
+                src="/logo.svg" 
+                alt="TollywoodBites" 
+                className="h-32 w-auto transform transition-transform hover:scale-110"
+              />
+            </a>
+
+            {/* Right Nav Links */}
+            {rightNavLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className={`text-sm font-bold tracking-wider transition-colors
+                  ${activeSection === link.id ? 'text-[#FBA40E]' : 'text-white hover:text-[#FBA40E]'}`}
+              >
+                {link.label}
+              </button>
+            ))}
           </div>
         </div>
       </header>
@@ -119,7 +116,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
             <X size={24} />
           </button>
           <div className="flex flex-col items-center gap-8 mt-16">
-            {navLinks.map((link) => (
+            {[...leftNavLinks, ...rightNavLinks].map((link) => (
               <button
                 key={link.id}
                 onClick={() => {
