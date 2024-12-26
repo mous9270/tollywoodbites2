@@ -11,7 +11,19 @@ const FoodMenu = () => {
   );
 
   return (
-    <section className="bg-[#0D0D0D] min-h-screen" id="menu">
+    <section className="bg-[#0D0D0D] min-h-screen relative overflow-hidden" id="menu">
+      {/* Background Shapes */}
+      <img
+        src="/public/shape-5.png"
+        alt="shape-5"
+        className="absolute  transform animate-oscillate w-240 opacity-40"
+      />
+      <img
+        src="/public/shape-6.png"
+        alt="shape-6"
+        className="absolute right-0 bottom-0 transform animate-oscillate w-240 opacity-40"
+      />
+
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 pt-16">
