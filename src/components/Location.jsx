@@ -10,7 +10,7 @@ const LocationSection = () => {
   };
 
   return (
-    <section className="min-h-screen bg-[#0D0D0D] flex flex-col md:flex-row" id="location">
+    <section className="min-h-screen bg-[#000000] flex flex-col md:flex-row" id="location">
       {/* Left Content Section */}
       <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
         <div className="max-w-xl">

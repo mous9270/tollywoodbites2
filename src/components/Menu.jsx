@@ -4,86 +4,54 @@ import menuData from "./menuData.jsx";
 const FoodMenu = () => {
   const [activeCategory, setActiveCategory] = useState(menuData.categories[0].name);
 
-  const renderMenuItem = (item) => {
-    if (item.variants) {
-      return (
-        <div className="flex flex-col gap-2">
-          <h4 className="text-white text-lg font-medium">{item.name}</h4>
-          <div className="pl-4 space-y-2">
-            {item.variants.map((variant, vIdx) => (
-              <div key={vIdx} className="flex justify-between items-center">
-                <span className="text-white/70 text-sm capitalize">
-                  {variant.type}
-                </span>
-                <span className="text-[#FBA40E] font-bold">
-                  ${variant.price.toFixed(2)}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-    }
-
-    return (
-      <div className="flex justify-between items-center">
-        <h4 className="text-white text-lg font-medium">{item.name}</h4>
-        <span className="text-[#FBA40E] font-bold text-lg">${item.price.toFixed(2)}</span>
-      </div>
-    );
-  };
+  const renderMenuItem = (item) => (
+    <div className="py-2 border-b border-white/10">
+      <h4 className="text-white text-sm font-medium capitalize">{item.name}</h4>
+    </div>
+  );
 
   return (
-    <section className="relative min-h-screen bg-black py-24 overflow-hidden" id="menu">
+    <section className="bg-[#0D0D0D] py-24" id="menu">
       <div className="container mx-auto px-4">
-        {/* Title Section */}
+        {/* Header */}
         <div className="text-center mb-16">
           <p className="text-[#FBA40E] text-sm font-bold tracking-[0.4em] uppercase mb-4">
-            Our Menu
+            Our Services
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-white">
-            Discover Our Delicacies
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8">
+            Catering
           </h2>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Category Navigation */}
-          <div className="w-full lg:w-1/4">
-            <div className="overflow-x-auto whitespace-nowrap flex space-x-4 p-4 bg-black/50 rounded-lg border border-white/10">
-              {menuData.categories.map((category, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveCategory(category.name)}
-                  className={`px-6 py-3 rounded-lg ${
-                    activeCategory === category.name
-                      ? "bg-[#FBA40E] text-black font-bold"
-                      : "text-white bg-white/10 hover:bg-[#FBA40E]/10"
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
-          </div>
+        {/* Category Navigation */}
+        <div className="overflow-x-auto whitespace-nowrap flex justify-center space-x-8 mb-12 border-b border-white/10 pb-2">
+          {menuData.categories.map((category, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveCategory(category.name)}
+              className={`text-sm uppercase tracking-wide pb-1 border-b-2 transition-colors duration-200 ${
+                activeCategory === category.name
+                  ? "border-[#FBA40E] text-[#FBA40E]"
+                  : "border-transparent hover:border-white/30 text-white/70 hover:text-white"
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
 
-          {/* Menu Items */}
-          <div className="w-full lg:w-3/4">
-            <div className="p-6 bg-black/50 rounded-lg border border-white/10">
-              <h3 className="text-[#FBA40E] font-serif text-3xl mb-8">{activeCategory}</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {menuData.categories
-                  .find((cat) => cat.name === activeCategory)
-                  ?.items.map((item, index) => (
-                    <div
-                      key={index}
-                      className="p-4 rounded-lg border border-white/10 hover:border-[#FBA40E] transition-colors"
-                    >
-                      {renderMenuItem(item)}
-                    </div>
-                  ))}
+        {/* Menu Items */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {menuData.categories
+            .find((cat) => cat.name === activeCategory)
+            ?.items.map((item, index) => (
+              <div
+                key={index}
+                className="bg-black/50 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-[#FBA40E] transition-colors duration-300"
+              >
+                {renderMenuItem(item)}
               </div>
-            </div>
-          </div>
+            ))}
         </div>
       </div>
     </section>
