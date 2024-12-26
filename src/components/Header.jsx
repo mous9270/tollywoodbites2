@@ -7,11 +7,12 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
 
   const leftNavLinks = [
     { id: 'home', label: 'HOME' },
-    { id: 'menu', label: 'MENU' }
+    { id: 'location', label: 'LOCATION' }
   ];
 
   const rightNavLinks = [
-    { id: 'location', label: 'LOCATION' },
+    
+    { id: 'menu', label: 'MENU' },
     { id: 'order', label: 'ORDER NOW' }
   ];
 
@@ -52,7 +53,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
   return (
     <>
       <header
-        className={`fixed w-full z-30 transition-all duration-300 overflow-hidden
+        className={`fixed w-full z-30 ml-4 mt-4 transition-all duration-300 overflow-hidden
           ${isHeaderActive ? 'bg-[#0D0D0D]' : ''}
           ${isHeaderHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
         style={{ top: '40px' }}
@@ -83,7 +84,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
               <img 
                 src="/logo.svg" 
                 alt="TollywoodBites" 
-                className="h-32 w-auto transform transition-transform hover:scale-110"
+                className="h-44 w-auto transform transition-transform hover:scale-110"
               />
             </a>
 
