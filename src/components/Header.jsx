@@ -52,13 +52,14 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
   return (
     <>
       <header
-        className={`fixed w-full z-30 ml-4 mt-8 transition-all duration-300
+        className={`fixed w-full mt-8 z-30 transition-all duration-300
           ${isHeaderActive ? 'bg-[#0D0D0D]' : ''}
           ${isHeaderHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
         style={{ top: '40px' }}
       >
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center justify-center gap-12 h-24">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center justify-center gap-12 h-24">
             {/* Left Nav Links */}
             {leftNavLinks.map((link) => (
               <button
@@ -83,7 +84,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
               <img 
                 src="/logo.svg" 
                 alt="TollywoodBites" 
-                className="h-48 w-auto transform transition-transform hover:scale-110"
+                className="h-52 w-auto transform transition-transform hover:scale-110"
               />
             </a>
 
@@ -99,10 +100,37 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
               </button>
             ))}
           </div>
+
+          {/* Mobile Navigation Bar */}
+          <div className="flex md:hidden items-center justify-between h-20">
+            {/* Left Logo */}
+            <a 
+              href="#home" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('home');
+              }}
+              className="block h-20 flex items-center"
+            >
+              <img 
+                src="/logo.svg" 
+                alt="TollywoodBites" 
+                className="h-32 w-auto"
+              />
+            </a>
+
+            {/* Hamburger Menu Button */}
+            <button 
+              className="text-white hover:text-[#FBA40E] transition-colors"
+              onClick={() => setIsNavActive(true)}
+            >
+              <Menu size={32} />
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Menu */}
       <div 
         className={`fixed top-0 ${isNavActive ? 'right-0' : '-right-full'} 
           w-full max-w-sm h-screen bg-black transition-all duration-300 z-50 
