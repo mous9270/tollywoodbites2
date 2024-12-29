@@ -84,7 +84,7 @@ const Header = ({ isHeaderActive, isHeaderHidden, isNavActive, setIsNavActive })
               <img 
                 src="/logo.svg" 
                 alt="TollywoodBites" 
-                className="h-52 w-auto transform transition-transform hover:scale-110"
+                className="h-60 w-auto transform transition-transform hover:scale-110"
               />
             </a>
 
